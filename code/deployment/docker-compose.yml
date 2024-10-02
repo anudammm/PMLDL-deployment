@@ -1,0 +1,19 @@
+version: '3'
+services:
+  api:
+    build:
+      context: ../..  # root of the project
+      dockerfile: code/deployment/api/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../../models:/app/models
+  app:
+    build:
+      context: ../..  # root of the project
+      dockerfile: code/deployment/app/Dockerfile
+    ports:
+      - "8501:8501"
+
+
+#docker-compose up --build
